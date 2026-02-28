@@ -1,0 +1,7 @@
+data/metadata
+data/processed
+data/raw
+.venv
+__pycache__
+.github
+.vscode
