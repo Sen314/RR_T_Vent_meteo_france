@@ -1,8 +1,5 @@
-data/metadata
-data/processed
-data/raw
+data/
+dbt/models/examples/
 .venv
 __pycache__
 .github
-.vscode
-data/state

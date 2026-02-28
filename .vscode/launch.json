@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: fetch-metadata",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.main",
+            "args": [
+                "fetch-metadata"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: dowload",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.main",
+            "args": [
+                "download"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: transform",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.main",
+            "args": [
+                "transform"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: load",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.main",
+            "args": [
+                "load"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}

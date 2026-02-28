@@ -1,0 +1,8 @@
+version: 1
+
+sources:
+  - name: weather_db
+    schema: public
+    tables:
+      - name: fact_weather
+      - name: dim_station
