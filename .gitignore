@@ -5,3 +5,4 @@ data/raw
 __pycache__
 .github
 .vscode
+data/state
