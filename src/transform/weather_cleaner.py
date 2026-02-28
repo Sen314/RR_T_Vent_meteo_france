@@ -83,7 +83,8 @@ def transform():
                 continue
 
             department_code = department_dir.name
-            
+            #TODO: implement threading to process multiple departments in parallel, but be careful with the number of threads and the I/O load on the system. 
+            # We can use a thread pool executor to limit the number of concurrent threads and avoid overwhelming the system.
             #focus only on Vent files for now, as they contain the most relevant weather data. We can easily extend to other files later if needed.
             if (department_code > "90"  and department_code < "95") or department_code == "75":
                 for gz_file in department_dir.glob("*Vent.csv.gz"):

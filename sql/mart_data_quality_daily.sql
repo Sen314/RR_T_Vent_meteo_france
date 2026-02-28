@@ -21,7 +21,6 @@ SELECT
 
     SUM(CASE WHEN fw.rainfall_mm > 0 AND fw.rain_duration_min = 0 THEN 1 ELSE 0 END)
         AS rain_without_duration
-
 FROM fact_weather fw
 GROUP BY fw.observation_date
 ORDER BY fw.observation_date;
