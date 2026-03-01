@@ -1,0 +1,27 @@
+version: 1
+
+models:
+  - name: int_weather_db_dim_station
+    description: "This model contains information about weather stations"
+    columns:
+      - name: station_id
+        description: "Primary key, unique identifier for each weather station."
+        tests:
+            - unique
+            - not_null
+            
+  - name: int_weather_db_fact_weather
+    description: "This model contains information about weather observations"
+    columns:
+      - name: observation_date
+        description: "Primary key, unique identifier for each weather observation."
+        tests:
+            - not_null
+      - name: station_id
+        description: "Primary key referencing the station where the observation was made."
+        tests:
+            - not_null
+            - relationships:
+                name: station_id_foreign_key_in_int_weather_db_dim_station
+                to: ref('int_weather_db_dim_station')
+                field: station_id

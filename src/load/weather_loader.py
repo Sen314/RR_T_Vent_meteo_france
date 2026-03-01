@@ -9,7 +9,7 @@ logger = get_logger(__name__)
 
 CLEAN_FILE = Path("data/processed/weather_observation.csv")
 
-def get_department_watermarks(cur, window_days=3):
+def get_department_watermarks(cur, window_days=10):
     cur.execute("""
         SELECT department_code, MAX(observation_date)
         FROM fact_weather fw
@@ -33,7 +33,7 @@ def load():
     station_rows = []
     fact_rows = []
     processed_rows = 0
-    watermarks = get_department_watermarks(cur, window_days=3)
+    watermarks = get_department_watermarks(cur, window_days=10)
 
     cur.execute("""
         INSERT INTO etl_run_log (pipeline_name, start_time, status)
