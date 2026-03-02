@@ -2,37 +2,16 @@ SELECT
     fw.station_id,
     ds.department_code,
     fw.observation_date,
-    fw.rainfall_mm,
-    fw.rain_duration_min,
-    CASE 
-            WHEN fw.temp_min_c = 0
-                AND fw.temp_mean_c = 0
-                AND fw.temp_max_c = 0
-            THEN NULL
-            ELSE fw.temp_min_c
-        END AS cleaned_station_min_temp,
-    CASE 
-        WHEN fw.temp_max_c = 0
-            AND fw.temp_mean_c = 0
-            AND fw.temp_min_c = 0
-        THEN NULL
-        ELSE fw.temp_max_c
-    END AS cleaned_station_max_temp,
-    CASE 
-        WHEN fw.temp_mean_c = 0
-            AND fw.temp_min_c = 0
-            AND fw.temp_max_c = 0
-        THEN NULL
-        WHEN fw.temp_mean_c IS NOT NULL
-            AND fw.temp_mean_c <> 0 
-        THEN fw.temp_mean_c
-        ELSE (fw.temp_max_c + fw.temp_min_c) / 2 
-    END AS cleaned_station_avg_temp,
-    fw.temp_amplitude_c,
-    fw.wind_mean_ms,
-    fw.wind_max_instant_ms,
-    fw.wind_max_3s_ms,
-    fw.wind_direction_deg,
+    fw.cleaned_station_min_temp AS temp_min_c,
+    fw.cleaned_station_max_temp AS temp_max_c,
+    fw.cleaned_station_avg_temp AS temp_mean_c,
+    fw.cleaned_station_rainfall_mm AS rainfall_mm,
+    fw.cleaned_station_rainfall_duration_min AS rain_duration_min,
+    fw.cleaned_station_temp_amplitude_c AS temp_amplitude_c,
+    fw.cleaned_station_wind_mean_ms AS wind_mean_ms,
+    fw.cleaned_station_wind_max_instant_ms AS wind_max_instant_ms,
+    fw.cleaned_station_wind_max_3s_ms AS wind_max_3s_ms,
+    fw.cleaned_station_wind_direction_deg AS wind_direction_deg,
     fw.ingestion_timestamp
 FROM 
     {{ ref('stg_weather_db_fact_weather') }} as fw
