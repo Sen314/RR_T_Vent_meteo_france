@@ -24,3 +24,19 @@ models:
 
       - name: anomaly_flag
         description: "1 if |z_score| >= 2"
+    
+    exposures:
+      - name: metabase_department_avg_temp_dashboard
+        type: dashboard
+        maturity: medium
+        url: http://localhost:3000/dashboard/67-temperature-stuff
+        description: >
+          Metabase dashboard displaying average temperature per department
+          over the last 12 months based on mart_department_daily.
+
+        depends_on:
+          - ref('mart_department_daily')
+
+        owner:
+          name: Ethan Hol
+          email: ethan@example.com
