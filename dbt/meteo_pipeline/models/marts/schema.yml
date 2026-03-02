@@ -1,0 +1,26 @@
+version: 1
+
+models:
+  - name: mart_department_daily
+    description: "This model aggregates daily weather data at the department level, including average temperature, total rainfall, and wind statistics."
+    columns:
+      - name: department_code
+        description: "The code representing the department."
+        tests:
+            - not_null
+      - name: observation_date
+        description: "The date for which the weather data is aggregated."
+        tests:
+            - not_null
+            
+  - name: mart_department_temperature_anomalies
+    description: |
+      Department-level anomaly detection model using Z-score
+      computed against historical day-of-year baseline.
+
+    columns:
+      - name: z_score
+        description: "Standardized deviation from historical seasonal mean"
+
+      - name: anomaly_flag
+        description: "1 if |z_score| >= 2"
