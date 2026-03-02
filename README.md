@@ -9,4 +9,4 @@ Evolution de la temperature sur les 12 derniers mois
 ![Alt text](images/temp-12month.png)
 
 Evolution de la temperature (rolling 7day) sur les 12 derniers mois
-![Alt text](images/rolling7day-12month.png)
+![Alt text](images/rolling7day-12months.png)
