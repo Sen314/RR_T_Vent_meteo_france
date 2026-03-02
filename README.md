@@ -10,3 +10,6 @@ Evolution de la temperature sur les 12 derniers mois
 
 Evolution de la temperature (rolling 7day) sur les 12 derniers mois
 ![Alt text](images/rolling7day-12months.png)
+
+Dectection Anomalies Été 2003 - Departement 75
+![Alt text](images/Detection-Ano-Summer-2003-Dept-75.png)
