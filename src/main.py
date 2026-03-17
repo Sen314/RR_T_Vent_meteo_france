@@ -22,7 +22,7 @@ def main():
 
     parser.add_argument(
         "command",
-        choices=["fetch-metadata", "download", "transform", "load"],
+        choices=["fetch-metadata", "download", "transform", "load", "all"],
         help="Pipeline command to execute"
     )
 
@@ -36,8 +36,13 @@ def main():
         transform()
     elif args.command == "load":
         load()
+    elif args.command == "all":
+        run_fetch_metadata()
+        run_download()
+        transform()
+        load()
     else:
-        print("need an argument: fetch-metadata, download, transform, or load")
+        print("need an argument: fetch-metadata, download, transform, load or all")
 
 if __name__ == "__main__":
     print(sys.executable)
